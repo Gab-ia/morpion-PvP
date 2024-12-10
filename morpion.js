@@ -23,7 +23,7 @@ function verif(caseJouees) {
         Number(a3.dataset.click) === Number(b3.dataset.click) && Number(b3.dataset.click) === Number(c3.dataset.click) && Number(c3.dataset.click) === 0) {
 
         setTimeout(() => {
-            titre.textContent = 'Les croix ont gagnées';
+            titre.textContent = 'Victoire des croix !';
             animation = lottie.loadAnimation({
                 container: document.getElementById('animation'),
                 renderer: 'svg',
@@ -48,7 +48,7 @@ function verif(caseJouees) {
         Number(a3.dataset.click) === Number(b3.dataset.click) && Number(b3.dataset.click) === Number(c3.dataset.click) && Number(c3.dataset.click) === 1) {
 
         setTimeout(() => {
-            titre.textContent = 'Les ronds ont gagnées';
+            titre.textContent = 'Victoire des ronds !';
             animation = lottie.loadAnimation({
                 container: document.getElementById('animation'),
                 renderer: 'svg',
