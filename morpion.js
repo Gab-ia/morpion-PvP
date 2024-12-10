@@ -1,6 +1,7 @@
 let carres = document.querySelectorAll('.carre');
 let rejouer = document.getElementById('rejouer');
 let titre = document.getElementById('titre');
+let animation = null;
 
 function verif(caseJouees) {
 
@@ -23,6 +24,13 @@ function verif(caseJouees) {
 
         setTimeout(() => {
             titre.textContent = 'Les croix ont gagnées';
+            animation = lottie.loadAnimation({
+                container: document.getElementById('animation'),
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: 'victory.json'
+            });
         }, 500);
 
         carres.forEach(carre => {
@@ -40,7 +48,14 @@ function verif(caseJouees) {
         Number(a3.dataset.click) === Number(b3.dataset.click) && Number(b3.dataset.click) === Number(c3.dataset.click) && Number(c3.dataset.click) === 1) {
 
         setTimeout(() => {
-            titre.textContent = 'Les ronds ont gagnés';
+            titre.textContent = 'Les ronds ont gagnées';
+            animation = lottie.loadAnimation({
+                container: document.getElementById('animation'),
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: 'victory.json'
+            });
         }, 500);
 
         carres.forEach(carre => {
@@ -72,12 +87,17 @@ carres.forEach(carre => {
     })
 });
 
-carres.forEach(carre => {
-    rejouer.addEventListener('click', () => {
-        titre.textContent = 'Super Morpion';
+rejouer.addEventListener('click', () => {
+    titre.textContent = 'Super Morpion';
+    carres.forEach(carre => {
         carre.style.backgroundPosition = 'left';
-        caseJouees = [];
         delete carre.dataset.click;
         carre.style.pointerEvents = 'auto';
-    })
-})
+    });
+
+    if (animation) {
+        animation.stop();
+        animation.destroy();
+        animation = null;
+    }
+});
