@@ -88,7 +88,7 @@ carres.forEach(carre => {
 });
 
 rejouer.addEventListener('click', () => {
-    titre.textContent = 'Super Morpion';
+    titre.textContent = 'Super Morpion Duo';
     carres.forEach(carre => {
         carre.style.backgroundPosition = 'left';
         delete carre.dataset.click;
